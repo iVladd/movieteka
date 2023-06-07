@@ -7,6 +7,7 @@ import { token } from "../../config";
 
 import "./style.scss";
 import InfiniteScroll from "react-infinite-scroll-component";
+import MovieCardSkeleton from "../../components/MovieCard/MovieCardSkeleton";
 
 const Search = () => {
   const { query } = useParams();
@@ -18,6 +19,7 @@ const Search = () => {
   useEffect(() => {
     setIsLoading(true);
     setCurrentPage(1);
+    setError("");
     fetch(
       `https://api.themoviedb.org/3/search/multi?query=${query}&page=${currentPage}`,
       {
@@ -74,6 +76,17 @@ const Search = () => {
     <section className="search-section">
       <ContentWrapper>
         <h2 className="search-section__label">Search results for '{query}'</h2>
+        {error && (
+          <div className="search-section__info">
+            <h2>{error}</h2>
+            <p>Try to refresh page</p>
+          </div>
+        )}
+        {!error && !isLoading && data?.results.length === 0 && (
+          <div className="search-section__info">
+            <h2>Nothing was found for this query</h2>
+          </div>
+        )}
         <InfiniteScroll
           dataLength={data ? data.results.length : 0}
           next={fetchNextPage}
@@ -81,9 +94,13 @@ const Search = () => {
           loader={<h4>Loading...</h4>}
         >
           <div className="search-section__list">
-            {data &&
+            {data?.results &&
               data.results.map((movie) => (
                 <MovieCard key={movie.id} data={movie} />
+              ))}
+            {isLoading &&
+              Array.from(Array(15).keys()).map((i) => (
+                <MovieCardSkeleton key={i} />
               ))}
           </div>
         </InfiniteScroll>

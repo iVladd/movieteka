@@ -38,6 +38,7 @@ const TVExplore = () => {
   useEffect(() => {
     setIsLoading(true);
     setCurrentPage(1);
+    setError("");
     fetch(defineQueryString(1), {
       method: "GET",
       headers: {

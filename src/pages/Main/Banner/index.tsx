@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import ContentWrapper from "../../../components/ContentWrapper";
-import Img from "../../../components/LazyLoadImage/Img";
 import { IMAGES_DB_URL } from "../../../config";
 import useFetch from "../../../hooks/useFetch";
 import { MovieResult } from "../../../types/movie";
