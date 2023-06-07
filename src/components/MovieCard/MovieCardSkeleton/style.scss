@@ -1,0 +1,36 @@
+.card-skeleton {
+  width: 224px;
+  &__img {
+    border-radius: 15px;
+    height: 335px;
+    width: 100%;
+    background: var(--black3);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  &__title {
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 60%;
+    height: 20px;
+    background: var(--black3);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+  &__date {
+    border-radius: 15px;
+    margin-top: 10px;
+    width: 30%;
+    height: 20px;
+    background: var(--black3);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--black2);
+  }
+  100% {
+    background-color: var(--black3);
+  }
+}

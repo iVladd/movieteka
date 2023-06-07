@@ -1,0 +1,71 @@
+.top-cast {
+  background-color: var(--black);
+  padding-bottom: 50px;
+  &__label {
+    color: white;
+    font-size: 24px;
+  }
+  &__wrapper {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    .person {
+      &__photo {
+        height: 180px;
+        width: 180px;
+        overflow: hidden;
+        border-radius: 50%;
+        img {
+          width: 180px;
+        }
+      }
+      &__name {
+        margin-top: 15px;
+        display: block;
+        text-align: center;
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+      }
+      &__character {
+        display: block;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        line-height: 24px;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+// Skeleton
+
+.cast-skeleton {
+  .image {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    background: var(--black3);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+  .one-line {
+    margin: 10px auto 0;
+    width: 70%;
+    height: 25px;
+    border-radius: 12px;
+    background: var(--black3);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--black2);
+  }
+  100% {
+    background-color: var(--black3);
+  }
+}

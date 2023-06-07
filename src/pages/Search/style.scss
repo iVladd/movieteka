@@ -1,0 +1,15 @@
+.search-section {
+  background-color: var(--black);
+  min-height: 80vh;
+  padding-top: 90px;
+  padding-bottom: 50px;
+  &__label {
+    color: white;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+    row-gap: 30px;
+  }
+}

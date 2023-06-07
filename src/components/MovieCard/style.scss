@@ -1,0 +1,39 @@
+.card {
+  cursor: pointer;
+  position: relative;
+  color: white;
+  width: 224px;
+  transition: all 0.15s ease-in-out;
+  &__img {
+    border-radius: 15px;
+    height: 338px;
+    width: 224px;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+  &__title {
+    margin-top: 20px;
+    font-size: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__date {
+    display: block;
+    font-size: 14px;
+    opacity: 0.5;
+  }
+  &__genres {
+    position: absolute;
+    top: 300px;
+    right: 10px;
+  }
+  .circleRating {
+    position: absolute;
+    top: 300px;
+    left: 10px;
+  }
+}

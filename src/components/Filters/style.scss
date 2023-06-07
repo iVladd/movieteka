@@ -1,0 +1,36 @@
+.react-select-container {
+  .react-select {
+    &__control {
+      cursor: pointer;
+      border: none;
+      min-width: 250px;
+      background: var(--black-lighter);
+      border-radius: 10px;
+    }
+    &__placeholder {
+      color: white;
+    }
+    &__single-value {
+      color: white;
+    }
+    &__multi-value {
+      background-color: black;
+      padding-left: 5px;
+      border-radius: 8px;
+      &__label {
+        color: white;
+        background-color: black;
+        border-radius: 8px;
+      }
+      &__remove {
+        cursor: pointer;
+        color: white;
+        background-color: black;
+        border-radius: 8px;
+        &:hover {
+          background-color: inherit;
+        }
+      }
+    }
+  }
+}

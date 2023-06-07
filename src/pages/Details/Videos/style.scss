@@ -1,0 +1,71 @@
+.videos {
+  background-color: var(--black);
+  padding-bottom: 50px;
+  &__label {
+    color: white;
+    font-size: 24px;
+  }
+  &__container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    gap: 25px;
+    .video-card {
+      cursor: pointer;
+      &__image {
+        position: relative;
+        img {
+          border-radius: 15px;
+          width: 100%;
+        }
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+        }
+        &:hover {
+          img {
+            opacity: 0.5;
+          }
+          .triangle {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            stroke: var(--pink);
+          }
+          .circle {
+            stroke-dashoffset: 0;
+            stroke: var(--pink);
+          }
+        }
+      }
+      &__title {
+        color: white;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+// Skeleton
+
+.video-skeleton {
+  .image {
+    border-radius: 15px;
+    width: 100%;
+    height: 163px;
+    background: var(--black3);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+  .one-line {
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 50%;
+    height: 30px;
+    background: var(--black3);
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+}

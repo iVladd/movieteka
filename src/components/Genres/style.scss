@@ -1,0 +1,10 @@
+.genres {
+  &__item {
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--pink);
+    margin-left: 5px;
+  }
+}

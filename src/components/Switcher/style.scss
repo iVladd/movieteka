@@ -1,0 +1,43 @@
+.checkbox {
+  width: 223px;
+  height: 40px;
+  background-color: var(--black3);
+  border-radius: 30px;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+input[id$="-checkbox_toggle"] {
+  display: none;
+}
+
+.checkbox .toggle {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  border-radius: 30px;
+  left: 5px;
+  cursor: pointer;
+  background: var(--gradient);
+  transition: 0.4s;
+}
+
+.checkbox .slide {
+  width: 230px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.checkbox .slide .text {
+  font-size: 16px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.check:checked + .checkbox .slide .toggle {
+  transform: translateX(113px);
+}

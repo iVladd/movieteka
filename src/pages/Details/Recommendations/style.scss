@@ -1,0 +1,9 @@
+.recommendations {
+  background-color: var(--black);
+  padding-bottom: 50px;
+  &__label {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 30px;
+  }
+}
