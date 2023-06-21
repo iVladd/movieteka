@@ -29,6 +29,7 @@ const VideoPopup = ({ id, mediaType, videoId }: VideoPopupProps) => {
         url={`https://www.youtube.com/watch?v=${youtubeId}`}
         width="100%"
         height="100%"
+        controls
         className="react-player"
       />
     </div>
