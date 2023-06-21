@@ -60,3 +60,15 @@ export interface Genre {
 export interface GenreResult {
   genres: Genre[];
 }
+
+export interface IVideos {
+  id: number;
+  results: {
+    id: string;
+    key: string;
+    name: string;
+    site: string;
+    size: number;
+    type: string;
+  }[];
+}

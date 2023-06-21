@@ -7,6 +7,9 @@ import CircleRating from "../../../components/CircleRating";
 import { transformDate } from "../../../utils/dateTransform";
 import PlayIcon from "../../../components/PlayIcon";
 import ContentWrapper from "../../../components/ContentWrapper";
+import { useState } from "react";
+import VideoPopup from "../../../components/VideoPopup";
+import noPosterImg from "../../../assets/no-poster.png";
 
 interface DetailInfoProps {
   id: number | undefined;
@@ -20,6 +23,7 @@ const DetailInfo = ({ id, mediaType }: DetailInfoProps) => {
   const [credits] = useFetch<Credits>(
     `https://api.themoviedb.org/3/${mediaType}/${id}/credits`
   );
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const director = credits?.crew.filter((f) => f.job === "Director") || [];
   const writer =
@@ -65,6 +69,11 @@ const DetailInfo = ({ id, mediaType }: DetailInfoProps) => {
 
   return (
     <section className="details__wrapper">
+      {isPopupOpen && (
+        <div className="video-popup" onClick={() => setIsPopupOpen(false)}>
+          <VideoPopup id={id} mediaType={mediaType} />
+        </div>
+      )}
       {data?.poster_path ? (
         <img
           src={IMAGES_DB_URL + "/original/" + data?.backdrop_path || ""}
@@ -76,12 +85,14 @@ const DetailInfo = ({ id, mediaType }: DetailInfoProps) => {
       )}
       <ContentWrapper>
         <div className="film">
-          {data?.poster_path && (
+          {data?.poster_path ? (
             <img
               src={IMAGES_DB_URL + "/w500/" + data?.poster_path}
               alt=""
               className="film__image"
             />
+          ) : (
+            <img src={noPosterImg} className="film__image"></img>
           )}
           <div className="film__info">
             <h3 className="film__info__title">{defineTitle()}</h3>
@@ -96,7 +107,7 @@ const DetailInfo = ({ id, mediaType }: DetailInfoProps) => {
                 rating={data?.vote_average.toFixed(1) || "0"}
                 bgColor="black"
               />
-              <button>
+              <button onClick={() => setIsPopupOpen(true)}>
                 <PlayIcon />
                 <span className="text">Watch trailer</span>
               </button>
@@ -148,7 +159,9 @@ const DetailInfo = ({ id, mediaType }: DetailInfoProps) => {
                   <span className="label">Creator: </span>
                   {data && data.created_by.length > 0 ? (
                     data?.created_by.map((creator) => (
-                      <span className="description">{creator.name}</span>
+                      <span className="description" key={creator.id}>
+                        {creator.name}
+                      </span>
                     ))
                   ) : (
                     <span className="description">Unknown</span>
